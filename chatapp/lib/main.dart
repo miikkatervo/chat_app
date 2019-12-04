@@ -91,7 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         itemBuilder: (context, index) {
                           var channel = channels[index];
                           return ChannelCard(
-                            imgURL: channel.image
+                            imgURL: channel.image,
+                            name: channel.name
                           );
                         },
                         separatorBuilder: (BuildContext context, int index) => const Divider(),
@@ -110,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
           bottomNavigationBar: new TabBar(
             tabs: [
               Tab(
-                icon: new Icon(Icons.settings),
+                icon: new Icon(Icons.search),
               ),
               Tab(
                 icon: new Icon(Icons.home),

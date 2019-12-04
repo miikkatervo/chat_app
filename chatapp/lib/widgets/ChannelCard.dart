@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-
+import './ChatState.dart';
 
 
 class ChannelCard extends StatelessWidget {
   final String imgURL;
-  ChannelCard({this.imgURL});
+  final String name;
+  ChannelCard({this.imgURL, this.name});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,8 +43,10 @@ class ChannelCard extends StatelessWidget {
                   onTap: (){
                     Navigator.push(
                       context, 
-                      MaterialPageRoute(builder: (context) => ChannelRoute()),
-                      );
+                      MaterialPageRoute(
+                        builder: (context) => ChannelRoute(name: this.name)
+                      ),
+                    );
                   },
                   child: Image.asset(imgURL, width: 100, height: 120),
               )
@@ -55,23 +58,3 @@ class ChannelCard extends StatelessWidget {
   }
 }
 
-class ChannelRoute extends StatefulWidget {
-  ChannelRoute({Key key, this.title}) : super(key: key);
-
-  final String title;
-
-  @override
-  _ChannelState createState() => _ChannelState();
-}
-
-class _ChannelState extends State<ChannelRoute> {
-
-  @override
-  Widget build(BuildContext context) {
-    
-    return Scaffold(
-      backgroundColor: Colors.amber[50],
-    );
-  }
-      
-}
