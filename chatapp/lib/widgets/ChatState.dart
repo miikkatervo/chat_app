@@ -68,6 +68,43 @@ class _ChannelState extends State<ChannelRoute> {
           Container(
             width: 370,
             height: 570,
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Padding(
+                padding: EdgeInsets.only(left:10, bottom: 15),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      "KingMiikka",
+                      style: TextStyle(
+                        fontFamily: 'Nunito',
+                        fontSize: 18,
+                        color: Colors.blue
+                      ),
+                    ),
+                    Text(
+                      ":",
+                      style: TextStyle(
+                        fontFamily: 'Nunito',
+                        fontSize: 18,
+                        color: Colors.black
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 5),
+                    ),
+                    Text(
+                      "OMG this is the best app ever!",
+                      style: TextStyle(
+                        fontFamily: 'Nunito',
+                        fontSize: 18,
+                        color: Colors.grey[800]
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(15),
