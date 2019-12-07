@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'model/model.dart';
+import 'model/channel.dart';
 import 'widgets/ChannelCard.dart';
 
 void main() => runApp(MyApp());
