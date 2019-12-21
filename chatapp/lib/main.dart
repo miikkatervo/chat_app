@@ -91,6 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         itemBuilder: (context, index) {
                           var channel = channels[index];
                           return ChannelCard(
+                            id: channel.id,
                             imgURL: channel.image,
                             name: channel.name
                           );
