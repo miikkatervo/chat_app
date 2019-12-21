@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'model/channel.dart';
 import 'widgets/ChannelCard.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp,DeviceOrientation.portraitDown])
+      .then((_) {
+    runApp(MyApp());
+  });
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -44,12 +51,19 @@ class _MyHomePageState extends State<MyHomePage> {
         length: 3,
         child: new Scaffold(
           body: TabBarView(
+            physics:NeverScrollableScrollPhysics(),
             children: [
               new Container(
-                color: Colors.green[50],
+                 decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:[Colors.blue[400], Colors.purple[900]] )
+                ),
               ),
               new Container(
-                color: Colors.green[50],
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:[Colors.blue[400], Colors.purple[900]] )
+                ),
                 child: Column(
                   children: <Widget>[
                   Padding(
@@ -57,10 +71,11 @@ class _MyHomePageState extends State<MyHomePage> {
                       top: 60
                     ),
                     child: Text(
-                      "Kannel",
+                      "",
                       style: TextStyle(
                         fontSize: 50,
-                        fontFamily: 'Nunito'
+                        fontFamily: 'Nunito',
+                        color: Colors.white
                       ),
                       ),
                   ),
@@ -73,7 +88,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       "Kanavat",
                       style: TextStyle(
                         fontFamily: 'Nunito',
-                        fontSize: 35
+                        fontSize: 35,
+                        color: Colors.white
                       ),
                       ),
                   ),
@@ -84,7 +100,10 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       width: double. infinity,
                       height: 350,
-                      color: Colors.green[50],
+                     decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors:[Colors.blue[400], Colors.purple[900]])
+                          ),
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemCount: 5,
@@ -109,16 +128,29 @@ class _MyHomePageState extends State<MyHomePage> {
                 color: Colors.green[50],
                 child: (
                 new Scaffold(
+                  body: Container(
+                     decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors:[Colors.blue[400], Colors.purple[900]] )
+                    ),
+                    ),
                   endDrawer: Drawer(
+                  child: Container(
+                    decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors:[Colors.grey[900], Colors.grey[800]]
+                        )),
                   child: ListView(
-                    padding: EdgeInsets.only(top:50),
+                    padding: EdgeInsets.only(top:60),
+                    
                       children: <Widget>[
 
                         ListTile(
                           title: Text('Käyttöehdot',
                            style: TextStyle(
                             fontSize: 30,
-                            fontFamily: 'Nunito'
+                            fontFamily: 'Nunito',
+                            color: Colors.white
                             ),
                           ),
                           onTap: () {
@@ -130,7 +162,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           title: Text('Kirjaudu ulos',
                           style: TextStyle(
                             fontSize: 30,
-                            fontFamily: 'Nunito'
+                            fontFamily: 'Nunito',
+                            color: Colors.white
                             ),
                           ),
                           onTap: () {
@@ -140,7 +173,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ],
                     ),
-                  ),
+                  )),
                   drawerEdgeDragWidth: 0,
                   floatingActionButton: Padding(
                     padding: const EdgeInsets.fromLTRB(100, 100, 10, 600),
@@ -148,7 +181,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         return new FloatingActionButton(
                           mini: false,
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.green[500],
+                          backgroundColor: Colors.blue[400],
                           onPressed: () {
                             Scaffold.of(context).openEndDrawer();
                           },
@@ -178,7 +211,7 @@ class _MyHomePageState extends State<MyHomePage> {
             indicatorPadding: EdgeInsets.all(5.0),
             indicatorColor: Colors.red[200],
           ),
-          backgroundColor: Colors.green[500]
+          backgroundColor: Colors.blue[800]
         ),
       ),
     );

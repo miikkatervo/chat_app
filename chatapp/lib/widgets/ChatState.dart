@@ -21,12 +21,20 @@ class _ChannelState extends State<ChannelRoute> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      backgroundColor: Colors.green[50],
-      body: Column(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors:[Colors.blue[400], Colors.purple[900]] )
+      ),
+      
+      child: Column(
         children: <Widget>[
           Container(
             height: 100,
-            color: Colors.green[600],
+             decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:[Colors.blue[400], Colors.purple[900]] )
+                ),
             child: Row(
               children: <Widget>[
                 Padding(
@@ -99,7 +107,7 @@ class _ChannelState extends State<ChannelRoute> {
           )
         ],
       )
-    );
+    ));
   }
       
 }
