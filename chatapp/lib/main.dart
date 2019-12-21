@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'model/channel.dart';
 import 'widgets/ChannelCard.dart';
+import 'package:flutter/services.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  SystemChrome.setPreferredOrientations(
+          [DeviceOrientation.portraitUp,DeviceOrientation.portraitDown])
+      .then((_) {
+    runApp(MyApp());
+  });
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -23,17 +30,17 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
+  
   final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
-List<int> colorCode = <int>[256, 246, 203];
+var plus = 50;
+List<int> midnightNavy = <int>[20+plus, 40+plus, 60+plus];
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  
   @override
   Widget build(BuildContext context) {
     
@@ -46,10 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
           body: TabBarView(
             children: [
               new Container(
-                color: Colors.green[50],
+                color: Color.fromRGBO(midnightNavy[0], midnightNavy[1], midnightNavy[2], 1.0),
               ),
               new Container(
-                color: Colors.green[50],
+                color: Color.fromRGBO(midnightNavy[0], midnightNavy[1], midnightNavy[2], 1.0),
                 child: Column(
                   children: <Widget>[
                   Padding(
@@ -84,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       width: double. infinity,
                       height: 350,
-                      color: Colors.green[50],
+                      color: Color.fromRGBO(midnightNavy[0], midnightNavy[1], midnightNavy[2], 1.0),
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemCount: 5,
@@ -106,9 +113,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 
               ),   
               new Container(
-                color: Colors.green[50],
                 child: (
                 new Scaffold(
+                  backgroundColor: Colors.green[50],
                   endDrawer: Drawer(
                   child: ListView(
                     padding: EdgeInsets.only(top:50),
@@ -173,12 +180,12 @@ class _MyHomePageState extends State<MyHomePage> {
                 icon: new Icon(Icons.perm_identity),
               )
             ], 
-            unselectedLabelColor: Colors.white,
+            unselectedLabelColor: Colors.black,
             indicatorSize: TabBarIndicatorSize.label,
             indicatorPadding: EdgeInsets.all(5.0),
             indicatorColor: Colors.red[200],
           ),
-          backgroundColor: Colors.green[500]
+          backgroundColor: Colors.blue[100]
         ),
       ),
     );

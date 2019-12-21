@@ -1,9 +1,17 @@
+import '../model/message.dart';
+import '../model/user.dart';
+
 class Channel {
   String id;
   String image;
   String name;
   Channel({this.id, this.image, this.name});
 }
+
+var messages = [
+  Message(id:"0", userId: users.id,  message: "Rakastan temppareita <33", channelId: "0"),
+  Message(id:"1", userId: users.id,  message: "Miksi kukaan ei vastaa? :'(", channelId: "1")
+];
 
 var channels = [
   Channel(id: "0", image: "assets/images/yle1.png", name: "Yle 1", ),
