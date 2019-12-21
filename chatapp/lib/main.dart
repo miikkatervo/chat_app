@@ -107,8 +107,60 @@ class _MyHomePageState extends State<MyHomePage> {
               ),   
               new Container(
                 color: Colors.grey[50],
-              )],
-          ),
+                child: (
+                new Scaffold(
+                  endDrawer: Drawer(
+                  child: ListView(
+                    padding: EdgeInsets.zero,
+                      children: <Widget>[
+                        DrawerHeader(
+                          child: Icon(Icons.settings,
+                          size: 100,
+                          color: Colors.white),
+                          decoration: BoxDecoration(
+                            color: Colors.brown[400],
+                            
+                          ),
+                        ),
+                        ListTile(
+                          title: Text('Käyttöehdot',
+                          style: TextStyle(fontSize: 25)),
+                          onTap: () {
+                            // Update the state of the app.
+                            // ...
+                          },
+                        ),
+                        ListTile(
+                          title: Text('Kirjaudu ulos',
+                          style: TextStyle(fontSize: 25)),
+                          onTap: () {
+                            // Update the state of the app.
+                            // ...
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                  drawerEdgeDragWidth: 0,
+                  floatingActionButton: Padding(
+                    padding: const EdgeInsets.fromLTRB(100, 100, 10, 700),
+                      child: new Builder(builder:(context) {
+                        return new FloatingActionButton(
+                          mini: true,
+                          foregroundColor: Colors.white,
+                          backgroundColor: Colors.brown[600],
+                          onPressed: () {
+                            Scaffold.of(context).openEndDrawer();
+                          },
+                        child: new Icon(Icons.settings),
+                      );
+                      
+
+                 }),
+                ))
+              )
+            ),
+          ]),
           bottomNavigationBar: new TabBar(
             tabs: [
               Tab(
