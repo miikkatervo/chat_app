@@ -111,17 +111,9 @@ class _MyHomePageState extends State<MyHomePage> {
                 new Scaffold(
                   endDrawer: Drawer(
                   child: ListView(
-                    padding: EdgeInsets.zero,
+                    padding: EdgeInsets.only(top:50),
                       children: <Widget>[
-                        DrawerHeader(
-                          child: Icon(Icons.settings,
-                          size: 100,
-                          color: Colors.white),
-                          decoration: BoxDecoration(
-                            color: Colors.green[500],
-                            
-                          ),
-                        ),
+
                         ListTile(
                           title: Text('Käyttöehdot',
                           style: TextStyle(fontSize: 25)),
@@ -143,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   drawerEdgeDragWidth: 0,
                   floatingActionButton: Padding(
-                    padding: const EdgeInsets.fromLTRB(100, 100, 10, 700),
+                    padding: const EdgeInsets.fromLTRB(100, 100, 10, 600),
                       child: new Builder(builder:(context) {
                         return new FloatingActionButton(
                           mini: true,
