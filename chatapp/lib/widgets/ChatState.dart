@@ -52,12 +52,18 @@ class _ChannelState extends State<ChannelRoute> {
     return KeyboardActions(
       config: _buildConfig(context),
       child: Container(
-      color: Colors.green[50],
-      child: Column(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors:[Colors.blue[400], Colors.purple[900]] )
+            ),
+        child: Column(
         children: <Widget>[
           Container(
             height: 100,
-            color: Colors.green[600],
+             decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors:[Colors.blue[400], Colors.purple[900]] )
+                ),
             child: Row(
               children: <Widget>[
                 Padding(
@@ -130,8 +136,7 @@ class _ChannelState extends State<ChannelRoute> {
           )
         ],
       )
-      )
-    );
+    ));
   }
       
 }
