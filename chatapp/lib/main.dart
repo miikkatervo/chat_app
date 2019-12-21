@@ -142,7 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   drawerEdgeDragWidth: 0,
                   floatingActionButton: Padding(
-                    padding: const EdgeInsets.only(bottom:680),
+                    padding: const EdgeInsets.fromLTRB(100, 100, 10, 700),
                       child: new Builder(builder:(context) {
                         return new FloatingActionButton(
                           mini: true,
