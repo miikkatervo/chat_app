@@ -116,7 +116,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         DrawerHeader(
                           child: Icon(Icons.settings,
                           size: 100,
-                          color: Colors.white),
+                          color: Colors.white
+                          ),
                           decoration: BoxDecoration(
                             color: Colors.green[500],
                             
@@ -148,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         return new FloatingActionButton(
                           mini: true,
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.green[00],
+                          backgroundColor: Colors.green[500],
                           onPressed: () {
                             Scaffold.of(context).openEndDrawer();
                           },
