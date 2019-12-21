@@ -39,17 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
     
     return MaterialApp(
       
-      color: Colors.amber[100],
+      color: Colors.green[50],
       home: DefaultTabController(
         length: 3,
         child: new Scaffold(
           body: TabBarView(
             children: [
               new Container(
-                color: Colors.grey[50],
+                color: Colors.green[50],
               ),
               new Container(
-                color: Colors.grey[50],
+                color: Colors.green[50],
                 child: Column(
                   children: <Widget>[
                   Padding(
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       width: double. infinity,
                       height: 350,
-                      color: Colors.grey[50],
+                      color: Colors.green[50],
                       child: ListView.separated(
                         scrollDirection: Axis.horizontal,
                         itemCount: 5,
@@ -105,7 +105,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 
               ),   
               new Container(
-                color: Colors.grey[50],
+                color: Colors.green[50],
                 child: (
                 new Scaffold(
                   endDrawer: Drawer(
@@ -117,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           size: 100,
                           color: Colors.white),
                           decoration: BoxDecoration(
-                            color: Colors.brown[400],
+                            color: Colors.green[500],
                             
                           ),
                         ),
@@ -147,7 +147,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         return new FloatingActionButton(
                           mini: true,
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.brown[600],
+                          backgroundColor: Colors.green[00],
                           onPressed: () {
                             Scaffold.of(context).openEndDrawer();
                           },
@@ -177,7 +177,7 @@ class _MyHomePageState extends State<MyHomePage> {
             indicatorPadding: EdgeInsets.all(5.0),
             indicatorColor: Colors.red[200],
           ),
-          backgroundColor: Colors.brown[400]
+          backgroundColor: Colors.green[500]
         ),
       ),
     );

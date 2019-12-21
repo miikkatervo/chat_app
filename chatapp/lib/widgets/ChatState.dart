@@ -19,12 +19,12 @@ class _ChannelState extends State<ChannelRoute> {
   Widget build(BuildContext context) {
     
     return Scaffold(
-      backgroundColor: Colors.amber[50],
+      backgroundColor: Colors.green[50],
       body: Column(
         children: <Widget>[
           Container(
             height: 100,
-            color: Colors.amber[200],
+            color: Colors.green[600],
             child: Row(
               children: <Widget>[
                 Padding(
@@ -56,7 +56,8 @@ class _ChannelState extends State<ChannelRoute> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'Nunito',
-                        fontSize: 35
+                        fontSize: 35,
+                        color: Colors.white
                       ),
                     ),    
                   ),
