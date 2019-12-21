@@ -148,7 +148,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         return new FloatingActionButton(
                           mini: true,
                           foregroundColor: Colors.white,
-                          backgroundColor: Colors.green[00],
+                          backgroundColor: Colors.green[500],
                           onPressed: () {
                             Scaffold.of(context).openEndDrawer();
                           },
