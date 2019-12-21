@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import '../model/message.dart';
+import '../model/user.dart';
+//import '../model/channel.dart';
 import './MessageItem.dart';
+
+var messages = [
+  Message(id:"0", userId: users.id,  message: "Rakastan temppareita <33", channelId: "0"),
+  Message(id:"1", userId: users.id,  message: "Miksi kukaan ei vastaa? :'(", channelId: "1")
+];
 
 class ChatScreen extends StatelessWidget {
   final String name;
-  ChatScreen({this.name});
+  final String channelId;
+  ChatScreen({this.name, this.channelId});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,9 +24,8 @@ class ChatScreen extends StatelessWidget {
                   itemCount: messages.length,
                   itemBuilder: (context, index) =>
                     MessageItem(
-                      user: messages[index].user,
-                      message: messages[index].message,
-                      color: messages[index].color
+                      userId: messages[index].userId,
+                      message: messages[index].message
                       )
                 )
               ),

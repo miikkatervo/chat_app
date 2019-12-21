@@ -3,9 +3,10 @@ import './ChatState.dart';
 
 
 class ChannelCard extends StatelessWidget {
+  final String id;
   final String imgURL;
   final String name;
-  ChannelCard({this.imgURL, this.name});
+  ChannelCard({this.id, this.imgURL, this.name});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -44,7 +45,7 @@ class ChannelCard extends StatelessWidget {
                     Navigator.push(
                       context, 
                       MaterialPageRoute(
-                        builder: (context) => ChannelRoute(name: this.name)
+                        builder: (context) => ChannelRoute(id: this.id, name: this.name)
                       ),
                     );
                   },

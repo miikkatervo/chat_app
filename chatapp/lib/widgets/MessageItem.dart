@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-
+import '../model/user.dart';
 
 class MessageItem extends StatelessWidget {
-  final String user;
+  final String userId;
   final String message;
-  final List<int> color;
-  MessageItem({this.user, this.message, this.color});
+  MessageItem({this.userId, this.message});
   @override
   Widget build(BuildContext context) {
     return Row(
       children: <Widget>[
         Text(
-          user,
+          users.username,
           style: TextStyle(
             fontFamily: 'Nunito',
             fontSize: 18,
-            color: Color.fromRGBO(color[0], color[1], color[2], 1.0)
+            color: Color.fromRGBO(users.color[0], users.color[1], users.color[2], 1.0)
           ),
         ),
         Text(

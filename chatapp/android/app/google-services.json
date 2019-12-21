@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "324823214919",
+    "firebase_url": "https://kannel-edb7e.firebaseio.com",
+    "project_id": "kannel-edb7e",
+    "storage_bucket": "kannel-edb7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324823214919:android:0e8d5aec50e0fec1637a62",
+        "android_client_info": {
+          "package_name": "com.kannelcomp.kannel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "324823214919-oo1bidblg0kl6qh0mahs9np0vulgciab.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCA9F23Tcw2f7j9QELuTVovAkqzctUwN0g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "324823214919-oo1bidblg0kl6qh0mahs9np0vulgciab.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

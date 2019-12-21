@@ -3,18 +3,20 @@ import './ChatScreen.dart';
 
 
 class ChannelRoute extends StatefulWidget {
-  ChannelRoute({Key key, this.title, this.name}) : super(key: key);
+  ChannelRoute({Key key, this.title, this.name, this.id}) : super(key: key);
 
   final String title;
   final String name;
+  final String id;
 
   @override
-  _ChannelState createState() => _ChannelState(name);
+  _ChannelState createState() => _ChannelState(name, id);
 }
 
 class _ChannelState extends State<ChannelRoute> {
   final String name;
-  _ChannelState(this.name);
+  final String id;
+  _ChannelState(this.name, this.id);
   @override
   Widget build(BuildContext context) {
     
@@ -67,7 +69,7 @@ class _ChannelState extends State<ChannelRoute> {
           Padding(
             padding: EdgeInsets.only(top: 20),
           ),
-          ChatScreen(name: name),
+          ChatScreen(name: name, channelId: id),
           Padding(
             padding: EdgeInsets.only(top: 15),
           ),
