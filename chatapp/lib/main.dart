@@ -125,7 +125,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         ListTile(
                           title: Text('Käyttöehdot',
-                          style: TextStyle(fontSize: 25)),
+                           style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'Nunito'
+                            ),
+                          ),
                           onTap: () {
                             // Update the state of the app.
                             // ...
@@ -133,7 +137,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         ListTile(
                           title: Text('Kirjaudu ulos',
-                          style: TextStyle(fontSize: 25)),
+                          style: TextStyle(
+                            fontSize: 30,
+                            fontFamily: 'Nunito'
+                            ),
+                          ),
                           onTap: () {
                             // Update the state of the app.
                             // ...
@@ -144,10 +152,10 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   drawerEdgeDragWidth: 0,
                   floatingActionButton: Padding(
-                    padding: const EdgeInsets.fromLTRB(100, 100, 10, 700),
+                    padding: const EdgeInsets.fromLTRB(100, 100, 10, 600),
                       child: new Builder(builder:(context) {
                         return new FloatingActionButton(
-                          mini: true,
+                          mini: false,
                           foregroundColor: Colors.white,
                           backgroundColor: Colors.green[500],
                           onPressed: () {
