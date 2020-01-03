@@ -44,6 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
       color: Colors.green[50],
       home: DefaultTabController(
           length: 3,
+          initialIndex: 1,
           child: new SafeArea(
             child: new Scaffold(
                 body: TabBarView(
