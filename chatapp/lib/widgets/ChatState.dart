@@ -106,7 +106,7 @@ class _ChannelState extends State<ChannelRoute> {
           Padding(
             padding: EdgeInsets.only(top: 20),
           ),
-          ChatScreen(name: name, channelId: id, messages: messages),
+          ChatScreen(name: name, channelId: id, messages: messages.where((m) => m.channelId == id).toList()),
           Padding(
             padding: EdgeInsets.only(top: 15),
           ),

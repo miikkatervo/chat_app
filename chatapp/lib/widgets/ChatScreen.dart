@@ -6,7 +6,7 @@ import './MessageItem.dart';
 class ChatScreen extends StatelessWidget {
   final String name;
   final String channelId;
-  List<Message> messages;
+  final List<Message> messages;
   ChatScreen({this.name, this.channelId, this.messages});
   @override
   Widget build(BuildContext context) {
