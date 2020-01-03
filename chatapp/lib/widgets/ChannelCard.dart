@@ -14,14 +14,14 @@ class ChannelCard extends StatelessWidget {
         left: 18),
       child: Container(
         width: 165,
-        height: 240,
+        height: 200,
         child: Stack(
           fit: StackFit.expand,
           children: <Widget>[
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: EdgeInsets.only(left: 5, right: 5, bottom: 75),
+                padding: EdgeInsets.only(left: 5, right: 5, bottom: 15),
                 child: Container(
                    width: 150,
                     height: 200,
@@ -39,7 +39,7 @@ class ChannelCard extends StatelessWidget {
             ),
             Positioned(
               right:  30,
-              top: 105,
+              top: 25,
               child: InkWell(
                   onTap: (){
                     Navigator.push(
