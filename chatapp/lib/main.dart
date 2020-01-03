@@ -67,71 +67,73 @@ class _MyHomePageState extends State<MyHomePage> {
                           padding: EdgeInsets.only(left: 15),
                           child: Container(
                             child: Column(
-                          children: <Widget>[
-                            Padding(
-                                padding: EdgeInsets.only(left: 25, top: 25, right: 35),
-                                child: Container(
+                              children: <Widget>[
+                                Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 25, top: 25, right: 35),
+                                    child: Container(
+                                        width: double.infinity,
+                                        decoration: BoxDecoration(
+                                            color: Colors.purple[500],
+                                            borderRadius:
+                                                BorderRadius.circular(15),
+                                            boxShadow: [
+                                              BoxShadow(
+                                                  color: Colors.black
+                                                      .withOpacity(.1),
+                                                  offset: Offset(0, 10),
+                                                  blurRadius: 12)
+                                            ]),
+                                        child: Padding(
+                                          padding: EdgeInsets.only(left: 20),
+                                          child: Text(
+                                            "Kanavat",
+                                            style: TextStyle(
+                                                fontFamily: 'Nunito',
+                                                fontSize: 35,
+                                                color: Colors.white),
+                                          ),
+                                        ))),
+                                Padding(
+                                  padding: EdgeInsets.only(top: 30),
+                                  child: Container(
                                     width: double.infinity,
+                                    height: platformHeight - 175,
                                     decoration: BoxDecoration(
-                                      color: Colors.purple[500],
-                                      borderRadius: BorderRadius.circular(15),
-                                      boxShadow: [
-                                        BoxShadow(
-                                            color: Colors.black.withOpacity(.1),
-                                            offset: Offset(0, 10),
-                                            blurRadius: 12)
-                                      ]),
-                                    child: Padding(
-                                      padding: EdgeInsets.only(left: 20),
-                                      child: Text(
-                                        "Kanavat",
-                                        style: TextStyle(
-                                            fontFamily: 'Nunito',
-                                            fontSize: 35,
-                                            color: Colors.white),
-                                      ),
-                                    ))),
-                            Padding(
-                              padding: EdgeInsets.only(top: 30),
-                              child: Container(
-                                width: double.infinity,
-                                height: platformHeight - 175,
-                                decoration: BoxDecoration(
-                                    gradient: LinearGradient(colors: [
-                                  Colors.blue[400],
-                                  Colors.purple[900]
-                                ])),
-                                child: ListView.separated(
-                                  scrollDirection: Axis.vertical,
-                                  itemCount: 3,
-                                  itemBuilder: (context, index) {
-                                    var channel1 = channels[2 * index];
-                                    var channel2 = channels[2 * index + 1];
-                                    return Container(
-                                      height: 200,
-                                      child: Row(
-                                      children: <Widget>[
-                                        ChannelCard(
-                                            id: channel1.id,
-                                            imgURL: channel1.image,
-                                            name: channel1.name),
-                                        ChannelCard(
-                                            id: channel2.id,
-                                            imgURL: channel2.image,
-                                            name: channel2.name)
-                                      ],
-                                      )
-                                    );
-                                  },
-                                  separatorBuilder:
-                                      (BuildContext context, int index) =>
-                                          const Divider(),
+                                        gradient: LinearGradient(colors: [
+                                      Colors.blue[400],
+                                      Colors.purple[900]
+                                    ])),
+                                    child: ListView.separated(
+                                      scrollDirection: Axis.vertical,
+                                      itemCount: 3,
+                                      itemBuilder: (context, index) {
+                                        var channel1 = channels[2 * index];
+                                        var channel2 = channels[2 * index + 1];
+                                        return Container(
+                                            height: 200,
+                                            child: Row(
+                                              children: <Widget>[
+                                                ChannelCard(
+                                                    id: channel1.id,
+                                                    imgURL: channel1.image,
+                                                    name: channel1.name),
+                                                ChannelCard(
+                                                    id: channel2.id,
+                                                    imgURL: channel2.image,
+                                                    name: channel2.name)
+                                              ],
+                                            ));
+                                      },
+                                      separatorBuilder:
+                                          (BuildContext context, int index) =>
+                                              const Divider(),
+                                    ),
+                                  ),
                                 ),
-                              ),
+                              ],
                             ),
-                          ],
-                        ),
-                        ),
+                          ),
                         ),
                       ),
                       new Container(

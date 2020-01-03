@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import './ChatScreen.dart';
-import  'package:keyboard_actions/keyboard_actions.dart';
+import 'package:keyboard_actions/keyboard_actions.dart';
 import '../model/message.dart';
 import '../model/user.dart';
-
-
+import '../services/database.dart';
 
 class ChannelRoute extends StatefulWidget {
   ChannelRoute({Key key, this.title, this.name, this.id}) : super(key: key);
@@ -17,15 +16,27 @@ class ChannelRoute extends StatefulWidget {
   _ChannelState createState() => _ChannelState(name, id);
 }
 
-
 class _ChannelState extends State<ChannelRoute> {
   final String name;
   final String id;
   final FocusNode _nodeText = FocusNode();
   TextEditingController messageController = new TextEditingController();
   var messages = [
-  Message(id:"0", userId: users.id,  message: "Rakastan temppareita <33", channelId: "0"),
-  Message(id:"1", userId: users.id,  message: "Miksi kukaan ei vastaa? :'(", channelId: "1")
+    Message(
+        id: "0",
+        userId: users.id,
+        message: "Rakastan temppareita <33",
+        channelId: "0"),
+    Message(
+        id: "1",
+        userId: users.id,
+        message: "Tänää chämppärii boiss",
+        channelId: "1"),
+    Message(
+        id: "1",
+        userId: users.id,
+        message: "Moikka maikkari :)",
+        channelId: "2")
   ];
 
   _ChannelState(this.name, this.id);
@@ -39,7 +50,14 @@ class _ChannelState extends State<ChannelRoute> {
         KeyboardAction(
           focusNode: _nodeText,
           onTapAction: () {
-            messages.insert(messages.length, Message(id: (messages.length).toString(), userId: users.id,  message: messageController.text, channelId: id));
+            messages.insert(
+                messages.length,
+                Message(
+                    id: (messages.length).toString(),
+                    userId: users.id,
+                    message: messageController.text,
+                    channelId: id));
+            // DatabaseService(channelId: id).updateMessages((messages.length).toString(), users.id, messageController.text); // mock user uid
             messageController.clear();
           },
         ),
@@ -50,94 +68,91 @@ class _ChannelState extends State<ChannelRoute> {
   @override
   Widget build(BuildContext context) {
     return KeyboardActions(
-      config: _buildConfig(context),
-      child: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors:[Colors.blue[400], Colors.purple[900]] )
-            ),
-        child: Column(
-        children: <Widget>[
-          Container(
-            height: 100,
-             decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors:[Colors.blue[400], Colors.purple[900]] )
-                ),
-            child: Row(
+        config: _buildConfig(context),
+        child: Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    colors: [Colors.blue[400], Colors.purple[900]])),
+            child: Column(
               children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(left: 20),
-                ),
-                InkWell(
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                  child: Container(
-                    height: 50,
-                    width: 50,
-                      child: Icon(
-                      Icons.arrow_back_ios,
-                      color: Colors.white,
-                      size: 30,
+                Container(
+                  height: 100,
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          colors: [Colors.blue[400], Colors.purple[900]])),
+                  child: Row(
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(left: 20),
                       ),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          height: 50,
+                          width: 50,
+                          child: Icon(
+                            Icons.arrow_back_ios,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(left: 35),
+                      ),
+                      Container(
+                        height: 50,
+                        width: 200,
+                        alignment: Alignment.center,
+                        child: Text(
+                          name,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: 'Nunito',
+                              fontSize: 35,
+                              color: Colors.white),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(left: 35),
+                  padding: EdgeInsets.only(top: 20),
+                ),
+                ChatScreen(
+                    name: name,
+                    channelId: id,
+                    messages:
+                        messages.where((m) => m.channelId == id).toList()),
+                Padding(
+                  padding: EdgeInsets.only(top: 15),
                 ),
                 Container(
-                    height: 50,
-                    width: 200,
-                    alignment: Alignment.center,      
-                    child: Text(
-                      name,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontFamily: 'Nunito',
-                        fontSize: 35,
-                        color: Colors.white
-                      ),
-                    ),    
-                  ),
+                  height: 50,
+                  width: 370,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(15),
+                      boxShadow: [
+                        BoxShadow(
+                            color: Colors.black.withOpacity(.1),
+                            offset: Offset(0, 10),
+                            blurRadius: 12)
+                      ]),
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      child: TextField(
+                        controller: messageController,
+                        keyboardType: TextInputType.text,
+                        focusNode: _nodeText,
+                        decoration: InputDecoration(
+                          hintText: "Write here...",
+                        ),
+                      )),
+                )
               ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(top: 20),
-          ),
-          ChatScreen(name: name, channelId: id, messages: messages.where((m) => m.channelId == id).toList()),
-          Padding(
-            padding: EdgeInsets.only(top: 15),
-          ),
-          Container(
-            height: 50,
-            width: 370,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withOpacity(.1),
-                  offset: Offset(0, 10),
-                  blurRadius: 12)
-               ]),
-            child: Padding(
-              padding: EdgeInsets.only(top:10, left: 10),
-                child: TextField(
-                  controller: messageController,
-                  keyboardType: TextInputType.text,
-                  focusNode: _nodeText,
-                  decoration: InputDecoration(
-                    hintText: "Write here...",
-                  ),
-              )
-            ),
-          )
-        ],
-      )
-    ));
+            )));
   }
-      
 }
-

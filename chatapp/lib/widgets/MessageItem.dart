@@ -12,30 +12,28 @@ class MessageItem extends StatelessWidget {
         Text(
           users.username,
           style: TextStyle(
-            fontFamily: 'Nunito',
-            fontSize: 18,
-            color: Color.fromRGBO(users.color[0], users.color[1], users.color[2], 1.0)
-          ),
+              fontFamily: 'Nunito',
+              fontSize: 18,
+              color: Color.fromRGBO(
+                  users.color[0], users.color[1], users.color[2], 1.0)),
         ),
         Text(
           ":",
           style: TextStyle(
-            fontFamily: 'Nunito',
-            fontSize: 18,
-            color: Colors.black
-          ),
+              fontFamily: 'Nunito', fontSize: 18, color: Colors.black),
         ),
         Padding(
           padding: EdgeInsets.only(left: 5),
         ),
-        Text(
-          message,
-          style: TextStyle(
-            fontFamily: 'Nunito',
-            fontSize: 18,
-            color: Colors.grey[800]
-          ),
-        ),
+        Expanded(
+          child: Text(
+                  message,
+                  style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontSize: 18,
+                      color: Colors.grey[800]),
+                ),
+        )
       ],
     );
   }
