@@ -1,14 +1,23 @@
 import 'package:chatapp/model/message.dart';
 import 'package:flutter/material.dart';
 import './MessageItem.dart';
+import 'package:provider/provider.dart';
 
 class ChatScreen extends StatelessWidget {
   final String name;
   final String channelId;
-  final List<Message> messages;
-  ChatScreen({this.name, this.channelId, this.messages});
+  ChatScreen({this.name, this.channelId});
   @override
   Widget build(BuildContext context) {
+
+    var messages = Provider.of<List<Message>>(context);
+    if(messages.length == 0) {
+      messages = List<Message>();
+    } else {
+      messages = messages.where((m) => m.channelId == channelId).toList();
+    }
+    
+
     return Container(
       width: 370,
       height: 570,

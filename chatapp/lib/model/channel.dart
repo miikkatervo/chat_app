@@ -9,8 +9,8 @@ class Channel {
 }
 
 var messages = [
-  Message(id:"0", userId: users.id,  message: "Rakastan temppareita <33", channelId: "0"),
-  Message(id:"1", userId: users.id,  message: "Miksi kukaan ei vastaa? :'(", channelId: "1")
+  Message(id:"0", userId: users.uid,  message: "Rakastan temppareita <33", channelId: "0"),
+  Message(id:"1", userId: users.uid,  message: "Miksi kukaan ei vastaa? :'(", channelId: "1")
 ];
 
 var channels = [

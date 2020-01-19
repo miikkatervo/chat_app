@@ -1,11 +1,11 @@
 class User {
-  String id;
+  String uid;
   String username;
   List<int> color;
-  User({this.id, this.username, this.color});
+  User({this.uid, this.username, this.color});
 }
 
-var users = User(id: "id", username: "AwesomeProd", color: <int>[209, 49, 49]);
+var users = User(uid: "id", username: "AwesomeProd", color: <int>[209, 49, 49]);
   
 
 

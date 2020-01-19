@@ -1,7 +1,11 @@
+import 'package:chatapp/services/auth.dart';
+import 'package:chatapp/widgets/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'model/channel.dart';
 import 'widgets/ChannelCard.dart';
 import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
+import 'model/user.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -15,13 +19,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ChatApp',
-      theme: ThemeData(
-        primarySwatch: Colors.red,
-        fontFamily: 'Nunito',
+    return StreamProvider<User>.value(
+      value: AuthService().user,
+      child: MaterialApp(
+        title: 'Kannel',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+          fontFamily: 'Nunito',
+        ),
+        home: Wrapper(),
       ),
-      home: MyHomePage(title: 'Chatapp'),
     );
   }
 }
@@ -36,6 +43,9 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     var platformHeight = MediaQuery.of(context).size.height;
@@ -177,9 +187,9 @@ class _MyHomePageState extends State<MyHomePage> {
                                             fontFamily: 'Nunito',
                                             color: Colors.white),
                                       ),
-                                      onTap: () {
-                                        // Update the state of the app.
-                                        // ...
+                                      onTap: () async {
+                                        await _auth.signOut();
+                                        await _auth.signOutGoogle();
                                       },
                                     ),
                                   ],
@@ -187,8 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               )),
                               drawerEdgeDragWidth: 0,
                               floatingActionButton: Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                    100, 150, 10, 600),
+                                padding: const EdgeInsets.only(bottom: 550, right: 40),
                                 child: new Builder(builder: (context) {
                                   return new FloatingActionButton(
                                     mini: false,
