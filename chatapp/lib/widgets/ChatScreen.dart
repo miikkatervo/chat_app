@@ -11,11 +11,7 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var messages = Provider.of<List<Message>>(context);
-    if(messages.length == 0) {
-      messages = List<Message>();
-    } else {
-      messages = messages.where((m) => m.channelId == channelId).toList();
-    }
+    if(messages == null) messages = List<Message>();
     
 
     return Container(

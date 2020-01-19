@@ -5,6 +5,7 @@ import '../model/message.dart';
 import '../model/user.dart';
 import '../services/database.dart';
 import 'package:provider/provider.dart';
+import 'package:uuid/uuid.dart';
 
 class ChannelRoute extends StatefulWidget {
   ChannelRoute({Key key, this.title, this.name, this.id}) : super(key: key);
@@ -30,6 +31,7 @@ class _ChannelState extends State<ChannelRoute> {
   KeyboardActionsConfig _buildConfig(BuildContext context) {
 
     final user = Provider.of<User>(context);
+    final uuid = Uuid();
 
     return KeyboardActionsConfig(
       keyboardActionsPlatform: KeyboardActionsPlatform.ALL,
@@ -39,8 +41,7 @@ class _ChannelState extends State<ChannelRoute> {
         KeyboardAction(
           focusNode: _nodeText,
           onTapAction: () async {
-            print(user.uid);
-            await DatabaseService(uid: user.uid).updateMessages("0", id, messageController.text); 
+            await DatabaseService(uid: user.uid).updateMessages(uuid.v1(), id, messageController.text); 
             messageController.clear();
           },
         ),
@@ -53,7 +54,7 @@ class _ChannelState extends State<ChannelRoute> {
 
 
     return StreamProvider<List<Message>>.value(
-          value: DatabaseService().messages, 
+          value: DatabaseService().get(id), 
           child: KeyboardActions(
           config: _buildConfig(context),
           child: Container(

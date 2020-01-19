@@ -1,5 +1,4 @@
 import 'package:chatapp/model/user.dart';
-import 'package:chatapp/services/database.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 

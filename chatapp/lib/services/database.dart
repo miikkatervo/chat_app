@@ -6,12 +6,11 @@ class DatabaseService {
   final String uid;
   DatabaseService({ this.uid });
 
-  // collection reference
-  final CollectionReference messageCollection = Firestore.instance.collection('messages');
-
+  // add message to database
   Future updateMessages(String messageId, String channelId, String message) async {
-    return await messageCollection.document(uid).setData({
+    return await Firestore.instance.collection(channelId).document(messageId).setData({
       'messageId': messageId,
+      'userId': uid,
       'channelId': channelId,
       'message': message,
     });
@@ -21,8 +20,8 @@ class DatabaseService {
   List<Message> _messageListFromSnapshot(QuerySnapshot snapshot) {
     return snapshot.documents.map((doc) {
       return Message(
-        id: doc.data['id'] ?? '',
-        userId: doc.data['id'] ?? '',
+        id: doc.data['messageId'] ?? '',
+        userId: doc.data['userId'] ?? '',
         message: doc.data['message'] ?? 'faulty message',
         channelId: doc.data['channelId'] ?? "0"
       );
@@ -30,8 +29,8 @@ class DatabaseService {
   }
 
   // get messages stream
-  Stream<List<Message>> get messages {
-    return messageCollection.snapshots()
+  Stream<List<Message>> get(channelId) {
+    return Firestore.instance.collection(channelId).snapshots()
       .map(_messageListFromSnapshot);
   }
 }
